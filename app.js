@@ -85,127 +85,29 @@ const menu = [
 
 let butonDiv = document.querySelector(".btn-container")
 
+let mainCards = document.querySelector("#main")
 
-let id1 = `<div class="menu-items col-lg-6 col-sm-12">
-<img src=${menu[0].img} alt=${menu[0].title} class="photo">
-<div class="menu-info">
-  <div class="menu-title">
-    <h4>${menu[0].title}</h4>
-    <h4 class="price">${menu[0].price}</h4>
-  </div>
-  <div class="menu-text">
-  ${menu[0].desc}
-  </div>
-</div>
-</div>
-`
-let id2 = `<div class="menu-items col-lg-6 col-sm-12">
-<img src=${menu[1].img} alt=${menu[1].title} class="photo">
-<div class="menu-info">
-  <div class="menu-title">
-    <h4>${menu[1].title}</h4>
-    <h4 class="price">${menu[1].price}</h4>
-  </div>
-  <div class="menu-text">
-  ${menu[1].desc}
-  </div>
-</div>
-</div>
-`
-let id3 = `<div class="menu-items col-lg-6 col-sm-12">
-<img src=${menu[2].img} alt=${menu[2].title} class="photo">
-<div class="menu-info">
-  <div class="menu-title">
-    <h4>${menu[2].title}</h4>
-    <h4 class="price">${menu[2].price}</h4>
-  </div>
-  <div class="menu-text">
-  ${menu[2].desc}
-  </div>
-</div>
-</div>
-`
-let id4 = `<div class="menu-items col-lg-6 col-sm-12">
-<img src=${menu[3].img} alt=${menu[3].title} class="photo">
-<div class="menu-info">
-  <div class="menu-title">
-    <h4>${menu[3].title}</h4>
-    <h4 class="price">${menu[3].price}</h4>
-  </div>
-  <div class="menu-text">
-  ${menu[3].desc}
-  </div>
-</div>
-</div>
-`
-let id5 = `<div class="menu-items col-lg-6 col-sm-12">
-<img src=${menu[4].img} alt=${menu[4].title} class="photo">
-<div class="menu-info">
-  <div class="menu-title">
-    <h4>${menu[4].title}</h4>
-    <h4 class="price">${menu[4].price}</h4>
-  </div>
-  <div class="menu-text">
-  ${menu[4].desc}
-  </div>
-</div>
-</div>
-`
-let id6 = `<div class="menu-items col-lg-6 col-sm-12">
-<img src=${menu[5].img} alt=${menu[5].title} class="photo">
-<div class="menu-info">
-  <div class="menu-title">
-    <h4>${menu[5].title}</h4>
-    <h4 class="price">${menu[5].price}</h4>
-  </div>
-  <div class="menu-text">
-  ${menu[5].desc}
-  </div>
-</div>
-</div>
-`
-let id7 = `<div class="menu-items col-lg-6 col-sm-12">
-<img src=${menu[6].img} alt=${menu[6].title} class="photo">
-<div class="menu-info">
-  <div class="menu-title">
-    <h4>${menu[6].title}</h4>
-    <h4 class="price">${menu[6].price}</h4>
-  </div>
-  <div class="menu-text">
-  ${menu[6].desc}
-  </div>
-</div>
-</div>
-`
-let id8 = `<div class="menu-items col-lg-6 col-sm-12">
-<img src=${menu[7].img} alt=${menu[7].title} class="photo">
-<div class="menu-info">
-  <div class="menu-title">
-    <h4>${menu[7].title}</h4>
-    <h4 class="price">${menu[7].price}</h4>
-  </div>
-  <div class="menu-text">
-  ${menu[7].desc}
-  </div>
-</div>
-</div>
-`
-let id9 = `<div class="menu-items col-lg-6 col-sm-12">
-<img src=${menu[8].img} alt=${menu[8].title} class="photo">
-<div class="menu-info">
-  <div class="menu-title">
-    <h4>${menu[8].title}</h4>
-    <h4 class="price">${menu[8].price}</h4>
-  </div>
-  <div class="menu-text">
-  ${menu[8].desc}
-  </div>
-</div>
-</div>
-`
-let main = document.querySelector("#main")
 
-main.innerHTML = id1 + id2 + id3 + id4 + id5 + id6 + id7 + id8 + id9
+
+for ( index=0; index < menu.length; index ++){
+
+  let elDiv = document.createElement("div")
+  mainCards.appendChild(elDiv)
+  elDiv.classList.add("menu-items", "col-lg-6", "col-sm-12")
+  elDiv.innerHTML = `
+  <img src=${menu[index].img} alt=${menu[index].title} class="photo">
+  <div class="menu-info">
+    <div class="menu-title">
+      <h4>${menu[index].title}</h4>
+      <h4 class="price">${menu[index].price}</h4>
+    </div>
+    <div class="menu-text">
+    ${menu[index].desc}
+    </div>
+  </div>
+
+  ` 
+}
 
 let buton = document.createElement('button')
 buton.classList.add("btn", "btn-outline-dark", "btn-item")
@@ -214,8 +116,27 @@ butonDiv.append(buton)
 
 buton.addEventListener('click', allbuton)
 function allbuton(event){
-  main.innerHTML = id1 + id2 + id3 + id4 + id5 + id6 + id7 + id8 + id9
+  for ( index=0; index < menu.length; index ++){
+
+    let elDiv = document.createElement("div")
+    mainCards.appendChild(elDiv)
+    elDiv.classList.add("menu-items", "col-lg-6", "col-sm-12")
+    elDiv.innerHTML = `
+    <img src=${menu[index].img} alt=${menu[index].title} class="photo">
+    <div class="menu-info">
+      <div class="menu-title">
+        <h4>${menu[index].title}</h4>
+        <h4 class="price">${menu[index].price}</h4>
+      </div>
+      <div class="menu-text">
+      ${menu[index].desc}
+      </div>
+    </div>
+  
+    ` 
+  }
 }
+
 
 let bKorea = document.createElement('button')
 bKorea.classList.add("btn", "btn-outline-dark", "btn-item")
@@ -223,8 +144,33 @@ bKorea.innerText = "Korea"
 butonDiv.appendChild(bKorea)
 
 bKorea.addEventListener('click', kore)
+
 function kore(event){
-  main.innerHTML = id1 + id3 + id7
+
+  
+let id1 = [ menu[0], menu[2], menu[6] ]
+
+
+for (index=0; index<id1.length; index ++){
+  let elDiv = document.createElement("div")
+    mainCards.appendChild(elDiv)
+    elDiv.classList.add("menu-items", "col-lg-6", "col-sm-12")
+    elDiv.innerHTML = `
+    <img src=${menu[index].img} alt=${menu[index].title} class="photo">
+    <div class="menu-info">
+      <div class="menu-title">
+        <h4>${menu[index].title}</h4>
+        <h4 class="price">${menu[index].price}</h4>
+      </div>
+      <div class="menu-text">
+      ${menu[index].desc}
+      </div>
+    </div>
+  
+    ` 
+}
+
+ // main.innerHTML = id1 + id3 + id7
 }
 
 let bJapan = document.createElement('button')
@@ -246,3 +192,4 @@ bChina.addEventListener('click', çin)
 function çin(event){
   main.innerHTML = id4 + id5 + id8
 }
+
