@@ -84,16 +84,13 @@ const menu = [
 
 
 let butonDiv = document.querySelector(".btn-container")
-
 let mainCards = document.querySelector("#main")
-
-
 
 for ( index=0; index < menu.length; index ++){
 
   let elDiv = document.createElement("div")
   mainCards.appendChild(elDiv)
-  elDiv.classList.add("menu-items", "col-lg-6", "col-sm-12")
+  elDiv.classList.add("menu-items", "col-lg-6", "col-sm-12", `${menu[index].category}`)
   elDiv.innerHTML = `
   <img src=${menu[index].img} alt=${menu[index].title} class="photo">
   <div class="menu-info">
@@ -110,86 +107,53 @@ for ( index=0; index < menu.length; index ++){
 }
 
 let buton = document.createElement('button')
-buton.classList.add("btn", "btn-outline-dark", "btn-item")
+buton.classList.add("btn", "btn-outline-dark", "btn-item", "allb")
 buton.innerText = "All"
 butonDiv.append(buton)
 
-buton.addEventListener('click', allbuton)
-function allbuton(event){
-  for ( index=0; index < menu.length; index ++){
-
-    let elDiv = document.createElement("div")
-    mainCards.appendChild(elDiv)
-    elDiv.classList.add("menu-items", "col-lg-6", "col-sm-12")
-    elDiv.innerHTML = `
-    <img src=${menu[index].img} alt=${menu[index].title} class="photo">
-    <div class="menu-info">
-      <div class="menu-title">
-        <h4>${menu[index].title}</h4>
-        <h4 class="price">${menu[index].price}</h4>
-      </div>
-      <div class="menu-text">
-      ${menu[index].desc}
-      </div>
-    </div>
-  
-    ` 
-  }
-}
-
-
 let bKorea = document.createElement('button')
-bKorea.classList.add("btn", "btn-outline-dark", "btn-item")
+bKorea.classList.add("btn", "btn-outline-dark", "btn-item", "koreab")
 bKorea.innerText = "Korea"
 butonDiv.appendChild(bKorea)
 
-bKorea.addEventListener('click', kore)
-
-function kore(event){
-
-  
-let id1 = [ menu[0], menu[2], menu[6] ]
-
-
-for (index=0; index<id1.length; index ++){
-  let elDiv = document.createElement("div")
-    mainCards.appendChild(elDiv)
-    elDiv.classList.add("menu-items", "col-lg-6", "col-sm-12")
-    elDiv.innerHTML = `
-    <img src=${menu[index].img} alt=${menu[index].title} class="photo">
-    <div class="menu-info">
-      <div class="menu-title">
-        <h4>${menu[index].title}</h4>
-        <h4 class="price">${menu[index].price}</h4>
-      </div>
-      <div class="menu-text">
-      ${menu[index].desc}
-      </div>
-    </div>
-  
-    ` 
-}
-
- // main.innerHTML = id1 + id3 + id7
-}
-
 let bJapan = document.createElement('button')
-bJapan.classList.add("btn", "btn-outline-dark", "btn-item")
+bJapan.classList.add("btn", "btn-outline-dark", "btn-item", "japanb")
 bJapan.innerText = "Japan"
 butonDiv.appendChild(bJapan)
 
-bJapan.addEventListener('click', japonya)
-function japonya(event){
-  main.innerHTML = id2 + id6 + id9
-}
-
 let bChina = document.createElement('button')
-bChina.classList.add("btn", "btn-outline-dark", "btn-item")
+bChina.classList.add("btn", "btn-outline-dark", "btn-item", "chinab")
 bChina.innerText = "China"
 butonDiv.appendChild(bChina)
 
-bChina.addEventListener('click', çin)
-function çin(event){
-  main.innerHTML = id4 + id5 + id8
-}
 
+$(function(){
+  $(".koreab").click(function(){
+    $(".Japan").hide();
+    $(".China").hide();
+})
+});
+
+$(function(){
+  $(".japanb").click(function(){
+    $(".Japan").show();
+    $(".Korea").hide();
+    $(".China").hide();
+})
+});
+
+$(function(){
+  $(".chinab").click(function(){
+    $(".China").show();
+    $(".Japan").hide();
+    $(".Korea").hide();
+})
+});
+
+$(function(){
+  $(".allb").click(function(){
+    $(".China").show();
+    $(".Japan").show();
+    $(".Korea").show();
+})
+})
