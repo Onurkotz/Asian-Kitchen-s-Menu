@@ -1,3 +1,4 @@
 # JAVASCRIPT ile menü çalışması
 
-Biraz uzun yoldan olsa da 1 aylık bir eğitimin sonucunda ortaya çıkan çalışmam.
+* For döngüsü kullanarak menü listelendi.
+* jQuery ile butonlar arası geçiş kolaylık kazandı ve kod okunabilirliği düzenlendi.
